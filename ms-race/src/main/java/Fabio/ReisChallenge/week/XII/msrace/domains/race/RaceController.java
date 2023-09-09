@@ -1,4 +1,4 @@
-package Fabio.ReisChallenge.week.XIII.msrace.domains.race;
+package Fabio.ReisChallenge.week.XII.msrace.domains.race;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

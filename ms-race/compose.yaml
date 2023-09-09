@@ -15,7 +15,7 @@ services:
       - 'RABBITMQ_DEFAULT_PASS=root'
       - 'RABBITMQ_DEFAULT_USER=root'
     ports:
-      - '15672:15672'
+      - '5672:5672'
   race-service:
     build:
       context: .

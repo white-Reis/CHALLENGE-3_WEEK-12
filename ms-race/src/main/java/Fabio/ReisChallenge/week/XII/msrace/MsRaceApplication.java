@@ -1,4 +1,4 @@
-package Fabio.ReisChallenge.week.XIII.msrace;
+package Fabio.ReisChallenge.week.XII.msrace;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

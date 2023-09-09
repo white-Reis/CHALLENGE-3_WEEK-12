@@ -1,6 +1,6 @@
-package Fabio.ReisChallenge.week.XIII.msrace.domains.race;
+package Fabio.ReisChallenge.week.XII.msrace.domains.race;
 
-import Fabio.ReisChallenge.week.XIII.msrace.domains.race.entitys.race.Race;
+import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.Race;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.RestController;
 

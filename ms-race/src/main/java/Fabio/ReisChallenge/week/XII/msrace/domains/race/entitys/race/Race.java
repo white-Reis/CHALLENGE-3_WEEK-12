@@ -1,4 +1,4 @@
-package Fabio.ReisChallenge.week.XIII.msrace.domains.race.entitys.race;
+package Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
