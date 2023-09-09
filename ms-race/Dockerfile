@@ -1,9 +1,14 @@
 FROM openjdk:17
 LABEL authors="fabio"
 
-WORKDIR /app
+WORKDIR /build
+COPY . /build
 
-COPY target/ms-race-0.0.1-SNAPSHOT.jar .
+RUN apt-get update && apt-get install -y maven
+RUN mvn package
+
+WORKDIR /app
+COPY target/ms-cars-0.0.1-SNAPSHOT.jar .
 
 EXPOSE 8082
 
