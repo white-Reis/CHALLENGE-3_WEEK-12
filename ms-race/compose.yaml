@@ -22,7 +22,12 @@ services:
       dockerfile: Dockerfile
     ports:
      - "8082:8082"
+    networks:
+     - OpenFeign
     depends_on:
       - mysql
       - rabbitmq
     command: ["sh", "-c", "sleep 120 && java -jar ms-race-0.0.1-SNAPSHOT.jar"]
+
+networks:
+  OpenFeign:
