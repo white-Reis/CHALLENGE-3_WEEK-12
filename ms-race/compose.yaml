@@ -9,6 +9,8 @@ services:
      - 'MYSQL_ALLOW_EMPTY_PASSWORD=yes'
     ports:
       - '3306:3306'
+    networks:
+      - ms-cars_OpenFeign
   rabbitmq:
     image: 'rabbitmq:latest'
     environment:
@@ -16,6 +18,8 @@ services:
       - 'RABBITMQ_DEFAULT_USER=root'
     ports:
       - '5672:5672'
+    networks:
+      - ms-cars_OpenFeign
   race-service:
     build:
       context: .
@@ -23,11 +27,8 @@ services:
     ports:
      - "8082:8082"
     networks:
-     - OpenFeign
+     - ms-cars_OpenFeign
     depends_on:
       - mysql
       - rabbitmq
-    command: ["sh", "-c", "sleep 120 && java -jar ms-race-0.0.1-SNAPSHOT.jar"]
-
-networks:
-  OpenFeign:
+    command: ["sh", "-c", "sleep 1 && java -jar ms-race-0.0.1-SNAPSHOT.jar"]
