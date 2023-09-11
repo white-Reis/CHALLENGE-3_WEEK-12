@@ -9,8 +9,6 @@ services:
      - 'MYSQL_ALLOW_EMPTY_PASSWORD=yes'
     ports:
       - '3306:3306'
-    networks:
-      - default
   rabbitmq:
     image: 'rabbitmq:latest'
     environment:
@@ -18,24 +16,32 @@ services:
       - 'RABBITMQ_DEFAULT_USER=root'
     ports:
       - '5672:5672'
-    networks:
-      - default
   race-service:
     build:
-      context: .
+      context: ./ms-race
       dockerfile: Dockerfile
     ports:
      - "8082:8082"
-    networks:
-     - default
-     - ms-cars
     depends_on:
       - mysql
       - rabbitmq
     command: ["sh", "-c", "sleep 1 && java -jar ms-race-0.0.1-SNAPSHOT.jar"]
 
-networks:
-  default:
-    driver: bridge
-  ms-cars:
-    external: true
+  db:
+    image: 'postgres:15.3'
+    environment:
+      - POSTGRES_DB=db_ms-cars
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+    ports:
+      - "5432:5432"
+  car-service:
+    build:
+      context: ./ms-cars
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    command: ["sh", "-c", "sleep 60 && java -jar ms-cars-0.0.1-SNAPSHOT.jar"]
+

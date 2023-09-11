@@ -13,5 +13,5 @@ import java.util.List;
 @NoArgsConstructor
 public class Cars {
 
-    private List<Cars> cars;
+    private List<Car> cars;
 }
