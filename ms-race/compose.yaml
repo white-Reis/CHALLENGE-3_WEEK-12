@@ -10,7 +10,7 @@ services:
     ports:
       - '3306:3306'
     networks:
-      - ms-cars_OpenFeign
+      - default
   rabbitmq:
     image: 'rabbitmq:latest'
     environment:
@@ -19,7 +19,7 @@ services:
     ports:
       - '5672:5672'
     networks:
-      - ms-cars_OpenFeign
+      - default
   race-service:
     build:
       context: .
@@ -27,12 +27,12 @@ services:
     ports:
      - "8082:8082"
     networks:
-     - ms-cars_OpenFeign
+     - default
     depends_on:
       - mysql
       - rabbitmq
     command: ["sh", "-c", "sleep 1 && java -jar ms-race-0.0.1-SNAPSHOT.jar"]
 
 networks:
-  ms-cars_OpenFeign:
-    external: true
+  default:
+    driver: bridge
