@@ -1,23 +1,42 @@
 package Fabio.ReisChallenge.week.XII.msrace.domains.race;
 
 import Fabio.ReisChallenge.week.XII.msrace.domains.cars.CarsFeignClient;
-import Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys.Cars;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.Race;
+import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceDTORequest;
+import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceDTOResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/race")
 public class RaceController {
 
-    private final CarsFeignClient carsFeignClient;
+    private final RaceService raceService;
 
-    public RaceController(CarsFeignClient carsFeignClient) {
-        this.carsFeignClient = carsFeignClient;
+    public RaceController(RaceService raceService) {
+        this.raceService = raceService;
+
     }
+
+   @PostMapping
+    public ResponseEntity<Void> createRace(RaceDTORequest raceDTORequest){
+        raceService.createRace(raceDTORequest);
+       return ResponseEntity.status(HttpStatus.CREATED).build();
+   }
+
+   @GetMapping("/{raceId}")
+    public ResponseEntity<RaceDTOResponse> getRaceById(@PathVariable Long raceId){
+        RaceDTOResponse race = raceService.getRaceById(raceId);
+        return ResponseEntity.ok(race);
+   }
 
     @GetMapping
-    public Cars getCarsFromCarsService() {
-        return carsFeignClient.getCars();
+    public ResponseEntity<List<RaceDTOResponse>> getAllCars() {
+        List<RaceDTOResponse> carDTOs = raceService.listAllRaces();
+        return ResponseEntity.ok(carDTOs);
     }
+
 }
