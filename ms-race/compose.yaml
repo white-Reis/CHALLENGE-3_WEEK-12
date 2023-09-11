@@ -28,6 +28,7 @@ services:
      - "8082:8082"
     networks:
      - default
+     - ms-cars
     depends_on:
       - mysql
       - rabbitmq
@@ -36,3 +37,5 @@ services:
 networks:
   default:
     driver: bridge
+  ms-cars:
+    external: true
