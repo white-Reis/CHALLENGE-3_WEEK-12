@@ -1,4 +1,4 @@
-package Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys;
+package Fabio.ReisChallenge.week.XIII.mshistory.domain.externalsObjects;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +10,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Car {
-
-    private Long id;
     private String brand;
     private String model;
     private Pilot pilot;

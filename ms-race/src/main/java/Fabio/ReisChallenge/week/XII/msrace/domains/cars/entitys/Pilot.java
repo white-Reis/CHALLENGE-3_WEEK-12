@@ -10,8 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Pilot {
-    private Long id;
-
     private String name;
 
     private Integer age;

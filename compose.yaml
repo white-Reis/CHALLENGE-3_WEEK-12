@@ -4,9 +4,9 @@ services:
   mysql:
     image: 'mysql:latest'
     environment:
-     - 'MYSQL_DATABASE=db_ms-race'
-     - 'MYSQL_ROOT_PASSWORD=root'
-     - 'MYSQL_ALLOW_EMPTY_PASSWORD=yes'
+      - 'MYSQL_DATABASE=db_ms-race'
+      - 'MYSQL_ROOT_PASSWORD=root'
+      - 'MYSQL_ALLOW_EMPTY_PASSWORD=yes'
     ports:
       - '3306:3306'
   rabbitmq:
@@ -19,11 +19,12 @@ services:
       context: ./ms-race
       dockerfile: Dockerfile
     ports:
-     - "8082:8082"
+      - "8082:8082"
     depends_on:
       - mysql
       - rabbitmq
-    command: ["sh", "-c", "sleep 1 && java -jar ms-race-0.0.1-SNAPSHOT.jar"]
+      - car-service
+    command: [ "sh", "-c", "sleep 300 && java -jar ms-race-0.0.1-SNAPSHOT.jar" ]
 
   db:
     image: 'postgres:15.3'
@@ -41,5 +42,15 @@ services:
       - "8081:8081"
     depends_on:
       - db
-    command: ["sh", "-c", "sleep 120 && java -jar ms-cars-0.0.1-SNAPSHOT.jar"]
+    command: [ "sh", "-c", "sleep 180 && java -jar ms-cars-0.0.1-SNAPSHOT.jar" ]
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d
+    command: mongod --auth
 
