@@ -6,6 +6,9 @@ import Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys.Cars;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.Race;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceResult;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -19,9 +22,12 @@ public class RaceSimulator {
     private CarsFeignClient carsFeignClient;
     private ModelMapper modelMapper;
 
-    public RaceSimulator(CarsFeignClient carsFeignClient, ModelMapper modelMapper) {
+    private TaskExecutor taskExecutor;
+
+    public RaceSimulator(CarsFeignClient carsFeignClient, ModelMapper modelMapper, @Qualifier("taskExecutor") TaskExecutor taskExecutor) {
         this.carsFeignClient = carsFeignClient;
         this.modelMapper = modelMapper;
+        this.taskExecutor=taskExecutor;
     }
 
     public Boolean startRace(Race raceDTORequest) {
@@ -35,25 +41,25 @@ public class RaceSimulator {
         return false;
     }
 
-    private CompletableFuture<Void> processRace(List<Car> shuffledCars, RaceResult raceResult) {
-        return CompletableFuture.runAsync(() -> {
-            List<Car> cars = shuffledCars.subList(0, Math.min(shuffledCars.size(), 10));
-            for (int time = 0; time < 300; time++) {
-                for (int currentCarIndex = 0; currentCarIndex < cars.size(); currentCarIndex++) {
-                    int randomValue = (int) (Math.random() * 100) + 1;
-                    if (randomValue > 50 && currentCarIndex > 0) {
-                        Car car = cars.get(currentCarIndex);
-                        cars.set(currentCarIndex, cars.get(currentCarIndex - 1));
-                        cars.set(currentCarIndex - 1, car);
-                    }
+    @Async
+    protected CompletableFuture<Void> processRace(List<Car> shuffledCars, RaceResult raceResult) {
+        List<Car> cars = shuffledCars.subList(0, Math.min(shuffledCars.size(), 10));
+        for (int time = 0; time < 300; time++) {
+            for (int currentCarIndex = 0; currentCarIndex < cars.size(); currentCarIndex++) {
+                int randomValue = (int) (Math.random() * 100) + 1;
+                if (randomValue > 50 && currentCarIndex > 0) {
+                    Car car = cars.get(currentCarIndex);
+                    cars.set(currentCarIndex, cars.get(currentCarIndex - 1));
+                    cars.set(currentCarIndex - 1, car);
                 }
             }
-            raceResult.setWinner(cars.get(0));
-            raceResult.setSecondPlace(cars.get(1));
-            raceResult.setThirdPlace(cars.get(2));
+        }
+        raceResult.setWinner(cars.get(0));
+        raceResult.setSecondPlace(cars.get(1));
+        raceResult.setThirdPlace(cars.get(2));
 
-            publishRaceResults(raceResult);
-        });
+        publishRaceResults(raceResult);
+        return CompletableFuture.completedFuture(null);
     }
 
     private List<Car> shuffleCars(List<Car> carList) {
