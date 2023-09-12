@@ -6,6 +6,7 @@ import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceDTOResp
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.processors.RaceSimulator;
 import Fabio.ReisChallenge.week.XII.msrace.exceptions.DataIntegratyViolationException;
 import Fabio.ReisChallenge.week.XII.msrace.exceptions.ObjectNotFoundException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.validation.Validator;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class RaceService {
         this.raceSimulator = raceSimulator;
     }
 
-    public void createRace(RaceDTORequest raceDTORequest) {
+    public void createRace(RaceDTORequest raceDTORequest) throws JsonProcessingException {
         validRace(raceDTORequest, validator);
         Optional<Race> optionalRace = raceRepository.findRaceByNameAndCountry(raceDTORequest.getName(), raceDTORequest.getCountry());
         if (optionalRace.isPresent()) {

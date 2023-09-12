@@ -1,11 +1,15 @@
 package Fabio.ReisChallenge.week.XII.msrace.domains.race.processors;
 
+import Fabio.ReisChallenge.week.XII.msrace.config.RabbitMQConfig;
 import Fabio.ReisChallenge.week.XII.msrace.domains.cars.CarsFeignClient;
 import Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys.Car;
 import Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys.Cars;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.Race;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceResult;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.Async;
@@ -24,13 +28,16 @@ public class RaceSimulator {
 
     private TaskExecutor taskExecutor;
 
-    public RaceSimulator(CarsFeignClient carsFeignClient, ModelMapper modelMapper, @Qualifier("taskExecutor") TaskExecutor taskExecutor) {
+    private RabbitTemplate rabbitTemplate;
+
+    public RaceSimulator(CarsFeignClient carsFeignClient, ModelMapper modelMapper, @Qualifier("taskExecutor") TaskExecutor taskExecutor, RabbitTemplate rabbitTemplate) {
         this.carsFeignClient = carsFeignClient;
         this.modelMapper = modelMapper;
         this.taskExecutor=taskExecutor;
+        this.rabbitTemplate = rabbitTemplate;
     }
 
-    public Boolean startRace(Race raceDTORequest) {
+    public Boolean startRace(Race raceDTORequest) throws JsonProcessingException {
         Cars carsObject = carsFeignClient.getCars();
         List<Car> cars = carsObject.getCars();
         List<Car> shuffledCars = shuffleCars(cars);
@@ -42,7 +49,7 @@ public class RaceSimulator {
     }
 
     @Async
-    protected CompletableFuture<Void> processRace(List<Car> shuffledCars, RaceResult raceResult) {
+    protected CompletableFuture<Void> processRace(List<Car> shuffledCars, RaceResult raceResult) throws JsonProcessingException {
         List<Car> cars = shuffledCars.subList(0, Math.min(shuffledCars.size(), 10));
         for (int time = 0; time < 300; time++) {
             for (int currentCarIndex = 0; currentCarIndex < cars.size(); currentCarIndex++) {
@@ -68,8 +75,10 @@ public class RaceSimulator {
         return shuffledCars;
     }
 
-    private void publishRaceResults(RaceResult raceResult) {
-        System.out.println(1);
+    private void publishRaceResults(RaceResult raceResult) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String raceResultJson = objectMapper.writeValueAsString(raceResult);
+        rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_NAME, RabbitMQConfig.QUEUE_NAME, raceResultJson);
     }
 
 }

@@ -4,6 +4,7 @@ import Fabio.ReisChallenge.week.XII.msrace.domains.cars.CarsFeignClient;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.Race;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceDTORequest;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceDTOResponse;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class RaceController {
     }
 
    @PostMapping
-    public ResponseEntity<Void> createRace(@RequestBody RaceDTORequest raceDTORequest){
+    public ResponseEntity<Void> createRace(@RequestBody RaceDTORequest raceDTORequest) throws JsonProcessingException {
         raceService.createRace(raceDTORequest);
        return ResponseEntity.status(HttpStatus.CREATED).build();
    }

@@ -11,11 +11,9 @@ services:
       - '3306:3306'
   rabbitmq:
     image: 'rabbitmq:latest'
-    environment:
-      - 'RABBITMQ_DEFAULT_PASS=root'
-      - 'RABBITMQ_DEFAULT_USER=root'
     ports:
       - '5672:5672'
+      - '15672:15672'
   race-service:
     build:
       context: ./ms-race
