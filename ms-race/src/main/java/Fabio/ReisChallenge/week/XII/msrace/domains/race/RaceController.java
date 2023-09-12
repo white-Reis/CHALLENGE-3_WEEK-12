@@ -1,7 +1,5 @@
 package Fabio.ReisChallenge.week.XII.msrace.domains.race;
 
-import Fabio.ReisChallenge.week.XII.msrace.domains.cars.CarsFeignClient;
-import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.Race;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceDTORequest;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceDTOResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
