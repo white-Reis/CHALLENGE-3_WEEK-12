@@ -3,6 +3,7 @@ package Fabio.ReisChallenge.week.XII.msrace.domains.race;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.Race;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceDTORequest;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceDTOResponse;
+import Fabio.ReisChallenge.week.XII.msrace.domains.race.processors.RaceSimulator;
 import Fabio.ReisChallenge.week.XII.msrace.exceptions.DataIntegratyViolationException;
 import Fabio.ReisChallenge.week.XII.msrace.exceptions.ObjectNotFoundException;
 import jakarta.validation.Validator;
@@ -23,20 +24,26 @@ public class RaceService {
     private final ModelMapper modelMapper;
     private final Validator validator;
 
-    RaceService(RaceRepository raceRepository, ModelMapper modelMapper, Validator validator) {
+    private final RaceSimulator raceSimulator;
+
+    RaceService(RaceRepository raceRepository, ModelMapper modelMapper, Validator validator, RaceSimulator raceSimulator) {
         this.raceRepository = raceRepository;
         this.modelMapper = modelMapper;
         this.validator = validator;
+        this.raceSimulator = raceSimulator;
     }
 
     public void createRace(RaceDTORequest raceDTORequest) {
-        validRace(raceDTORequest,validator);
-        Optional<Race> optionalRace = raceRepository.findRaceByNameAndCountry(raceDTORequest.getName(),raceDTORequest.getCountry());
-        if (optionalRace.isPresent()){
+        validRace(raceDTORequest, validator);
+        Optional<Race> optionalRace = raceRepository.findRaceByNameAndCountry(raceDTORequest.getName(), raceDTORequest.getCountry());
+        if (optionalRace.isPresent()) {
             throw new DataIntegratyViolationException("Race already registered");
         }
-        Race race = modelMapper.map(raceDTORequest,Race.class);
+        Race race = modelMapper.map(raceDTORequest, Race.class);
         race.setDate(new Date());
+       if( raceSimulator.startRace(race)){
+           throw new DataIntegratyViolationException("not enough cars");
+       }
         raceRepository.save(race);
     }
 

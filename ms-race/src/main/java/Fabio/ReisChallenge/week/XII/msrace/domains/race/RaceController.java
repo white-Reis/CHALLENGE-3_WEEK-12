@@ -22,7 +22,7 @@ public class RaceController {
     }
 
    @PostMapping
-    public ResponseEntity<Void> createRace(RaceDTORequest raceDTORequest){
+    public ResponseEntity<Void> createRace(@RequestBody RaceDTORequest raceDTORequest){
         raceService.createRace(raceDTORequest);
        return ResponseEntity.status(HttpStatus.CREATED).build();
    }

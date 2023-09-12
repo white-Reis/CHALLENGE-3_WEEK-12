@@ -1,7 +1,6 @@
 package Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys.Car;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,13 +12,17 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RaceDTORequest {
+public class RaceResult {
 
-    @NotBlank(message = "name cannot be blank")
     private String name;
 
-    @NotBlank(message = "Country cannot be blank")
     private String country;
 
     private Date date;
+
+    private Car winner;
+
+    private Car secondPlace;
+
+    private Car thirdPlace;
 }
