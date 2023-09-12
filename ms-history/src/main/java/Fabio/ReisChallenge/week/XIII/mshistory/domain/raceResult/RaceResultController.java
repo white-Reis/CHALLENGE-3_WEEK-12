@@ -25,9 +25,9 @@ public class RaceResultController {
     }
 
 
-    @GetMapping("/{raceId}")
-    public ResponseEntity<RaceResultDTOResponse> getCarById(@PathVariable String raceResultID) {
-        RaceResultDTOResponse raceResultDTO = raceResultService.getRaceResultById(raceResultID);
+    @GetMapping("/{raceResultId}")
+    public ResponseEntity<RaceResultDTOResponse> getCarById(@PathVariable String raceResultId) {
+        RaceResultDTOResponse raceResultDTO = raceResultService.getRaceResultById(raceResultId);
         return ResponseEntity.ok(raceResultDTO);
     }
 

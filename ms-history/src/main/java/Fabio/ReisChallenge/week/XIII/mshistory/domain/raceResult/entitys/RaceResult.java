@@ -26,6 +26,7 @@ public class RaceResult {
 
     private Date date;
 
+
     private Car winner;
 
     private Car secondPlace;
