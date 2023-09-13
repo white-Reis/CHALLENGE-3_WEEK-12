@@ -1,4 +1,4 @@
-package Fabio.ReisChallenge.week.XII.mscars.exceptions;
+package Fabio.ReisChallenge.week.XIII.mshistory.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException {
     public ObjectNotFoundException(String message) {
