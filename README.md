@@ -70,7 +70,7 @@ If any service has the exited status, the "docker compose up -d" command must be
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## :round_pushpin:EndPoints
 
-You can use the Postman collection to interact with the Compass Scholarship Program API. Download the Postman collection by clicking the link below:
+You can use the Postman collection to interact with the API. Download the Postman collection by clicking the link below:
 
 [Postman Collection](https://www.postman.com/speeding-equinox-52035/workspace/compass2023/collection/27688899-bcce56e9-ade6-4b72-b8fe-897066dc0dbd?action=share&creator=27688899)
 
@@ -82,8 +82,9 @@ To use the collection:
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## :zap: Testing
 
-Run the automated tests by executing the following command:
+Run the tests by executing the following command in the service directory:
    ```bash
+   cd .\ms-cars\
    mvn test
 
 ````      
@@ -106,8 +107,3 @@ ________________________________________________________________________________
 - JPA (Java Persistence API)
 - ModelMapper
 
-### :mechanical_arm:Considerations
-
-When starting the application, some data is automatically saved, so there is chance of error due to unique keys generated, the configuration in the application properties is like "spring.jpa.hibernate.ddl-auto=create-drop" if you want to keep your data saves will need to change to "spring.jpa.hibernate.ddl-auto=update" they will generate conflicts if the database is not cleaned up before starting the application again.
-
-feel free to use this project and modify!
