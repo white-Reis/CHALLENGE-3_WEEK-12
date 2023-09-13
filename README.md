@@ -10,7 +10,7 @@ Historical Service: Completing the trio, the Historical Service serves as the pr
 
 All services are equipped with robust validation mechanisms and leverage agile development tools like Lombok. We've also gone the extra mile by configuring a Docker Compose setup, simplifying the deployment process for all services and their respective databases. Additionally, we've crafted scripts for building executables, making it effortless to run the project on both Windows, using CMD, and Linux, using sh.
 
-Our project is a testament to the capabilities of microservices, harnessing the potential of various technologies and databases to create a dynamic and efficient racing management system."
+Our project is a testament to the capabilities of microservices, harnessing the potential of various technologies and databases to create a dynamic and efficient racing management system.
 
 
 
@@ -20,13 +20,14 @@ Our project is a testament to the capabilities of microservices, harnessing the 
 - Use of the MongoDB database in one or more services.
 - Use of OpenFeign.
 - Use of RabbitMQ.
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 # :vulcan_salute:Getting Started
 
 ## :memo:Prerequisites
 
 - Java 17
-- Maven 3.0.9
+- Maven 4.0.0
 - MySQL database
 - PostgreSQL
 - MongoDB
@@ -35,8 +36,8 @@ ________________________________________________________________________________
 - Docker
 - Postman
 - GitBash
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## :hammer_and_wrench:Installation
 
 If you don't have Maven, GitBash our Docker installed, you can download it from here 
@@ -55,44 +56,56 @@ Docker - https://www.docker.com/products/docker-desktop/
 
 3. Run Docker compose
    ```bash
-   docker-compose up
-  
+   docker-compose up -d
 
+
+Services take a while to start, Spring applications take a little longer because a waiting time has been defined for the services to start correctly, but if it doesn't happen as expected, it can be monitored by Docker.
+If everything goes correctly, all services will be running as in the image below
+
+![dock](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/bf94e74d-205b-4264-93b1-726cf03a3ee5)
+
+If any service has the exited status, the "docker compose up -d" command must be run again or click on the action arrow in the right corner of the containers, as shown in the image below
+
+![ssa](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/3710e918-0722-46ba-acc4-6395ebde694b)
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+## :zap: Testing
+
+Run the tests by executing the following command in the service directory:
+   ```bash
+   cd .\ms-cars\
+   mvn test
+
+````     
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 ## :round_pushpin:EndPoints
 
-You can use the Postman collection to interact with the Compass Scholarship Program API. Download the Postman collection by clicking the link below:
+You can use the Postman collection to interact with the API. Download the Postman collection by clicking the link below:
 
-[Postman Collection](https://www.postman.com/speeding-equinox-52035/workspace/compass2023/collection/27688899-bcce56e9-ade6-4b72-b8fe-897066dc0dbd?action=share&creator=27688899)
+[Postman Collection](https://www.postman.com/speeding-equinox-52035/workspace/race-api/collection/27688899-92be23e3-5d60-4987-a410-839132c0b875?action=share&creator=27688899)
 
 To use the collection:
 1. Open Postman.
 2. Import the downloaded collection.
 3. Follow the API requests and responses to interact with the endpoints.
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
-## :zap: Testing
-
-Run the automated tests by executing the following command:
-   ```bash
-   mvn test
-
-````      
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## 🚀Technologies
 
 - Java 17
 - Maven 4.0.0
+- Docker
 - MySQL database
+- PostgreSQL
+- MongoDB
+- OpenFeign
+- RabbitMq
 - Git
+- GitBash
 - Spring Boot 3.0.9
 - Validator
 - Lombok
 - JPA (Java Persistence API)
 - ModelMapper
 
-### :mechanical_arm:Considerations
-
-When starting the application, some data is automatically saved, so there is chance of error due to unique keys generated, the configuration in the application properties is like "spring.jpa.hibernate.ddl-auto=create-drop" if you want to keep your data saves will need to change to "spring.jpa.hibernate.ddl-auto=update" they will generate conflicts if the database is not cleaned up before starting the application again.
-
-feel free to use this project and modify!
