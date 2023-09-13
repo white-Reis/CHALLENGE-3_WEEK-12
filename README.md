@@ -28,11 +28,6 @@ ________________________________________________________________________________
 
 - Java 17
 - Maven 4.0.0
-- MySQL database
-- PostgreSQL
-- MongoDB
-- OpenFeign
-- RabbitMQ
 - Docker
 - Postman
 - GitBash
@@ -64,7 +59,7 @@ If everything goes correctly, all services will be running as in the image below
 
 ![dock](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/bf94e74d-205b-4264-93b1-726cf03a3ee5)
 
-If any service has the exited status, the "docker compose up -d" command must be run again or click on the action arrow in the right corner of the containers, as shown in the image below
+If any service has the exited status, the "docker-compose up -d" command must be run again or click on the action arrow in the right corner of the containers, as shown in the image below
 
 ![ssa](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/3710e918-0722-46ba-acc4-6395ebde694b)
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -103,7 +98,7 @@ ________________________________________________________________________________
 - RabbitMq
 - Git
 - GitBash
-- Spring Boot 3.0.9
+- Spring Boot
 - Validator
 - Lombok
 - JPA (Java Persistence API)
