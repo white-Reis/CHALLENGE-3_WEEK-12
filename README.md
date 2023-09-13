@@ -71,7 +71,7 @@ ________________________________________________________________________________
 
 ## :zap: Testing
 
-Run the tests by executing the following command in the service directory:
+Running the test requires you to enter the service directory:
    ```bash
    cd .\ms-cars\
    mvn test
@@ -108,4 +108,10 @@ ________________________________________________________________________________
 - Lombok
 - JPA (Java Persistence API)
 - ModelMapper
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
+## :speech_balloon: BackLog of project(Kanban)
+
+Here is how the division of tasks was organized during development
+
+![kk](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/166bc4f0-88a1-4c53-99a2-83018cfeea4c)
