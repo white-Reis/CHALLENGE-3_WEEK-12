@@ -114,4 +114,5 @@ ________________________________________________________________________________
 
 Here is how the division of tasks was organized during development
 
-![kk](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/166bc4f0-88a1-4c53-99a2-83018cfeea4c)
+![ls](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/a76900f4-6d1a-4bdb-b4f1-fe1f8bad9ccb)
+
