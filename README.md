@@ -28,11 +28,6 @@ ________________________________________________________________________________
 
 - Java 17
 - Maven 4.0.0
-- MySQL database
-- PostgreSQL
-- MongoDB
-- OpenFeign
-- RabbitMQ
 - Docker
 - Postman
 - GitBash
