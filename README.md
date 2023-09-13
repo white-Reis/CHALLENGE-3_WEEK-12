@@ -20,17 +20,6 @@ Our project is a testament to the capabilities of microservices, harnessing the 
 - Use of the MongoDB database in one or more services.
 - Use of OpenFeign.
 - Use of RabbitMQ.
-
-## :closed_book: Table of Contents
-
-- [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Testing](#testing)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Endpoints](#endpoints)
-- [Technologies](#technologies)
-- [Considerations](#Considerations)
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 # :vulcan_salute:Getting Started
 
@@ -45,20 +34,24 @@ ________________________________________________________________________________
 - RabbitMQ
 - Docker
 - Postman
+- GitBash
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
-## :hammer_and_wrench:Installation windows
+## :hammer_and_wrench:Installation
+
+If you don't have Maven installed, you can download it from here - https://maven.apache.org/download.cgi
+If you don't have GitBash installed, you can download it from here - https://git-scm.com/downloads
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/white-Reis/compass-scholarship-api.git
    cd CHALLENGE-3_WEEK-12
-   
-  
+   bash build_all.sh
+   docker-compose up
 
-If you don't have Maven installed, you can download it from here - https://maven.apache.org/download.cgi
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## :round_pushpin:EndPoints
 
 You can use the Postman collection to interact with the Compass Scholarship Program API. Download the Postman collection by clicking the link below:
@@ -71,7 +64,7 @@ To use the collection:
 3. Follow the API requests and responses to interact with the endpoints.
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
-## :zap:Testing
+## :zap: Testing
 
 Run the automated tests by executing the following command:
    ```bash
