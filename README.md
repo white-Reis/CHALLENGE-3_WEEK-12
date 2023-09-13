@@ -1,6 +1,6 @@
 # Race API
 
-"In this project, we delve into the world of microservices, harnessing the power of multiple databases, messaging systems, and consumers. The system comprises three distinct services, each playing a pivotal role in managing races and providing a seamless experience for users.
+In this project, we delve into the world of microservices, harnessing the power of multiple databases, messaging systems, and consumers. The system comprises three distinct services, each playing a pivotal role in managing races and providing a seamless experience for users.
 
 Car Service: This service is the backbone of the project, equipped with a robust relational database. Its primary responsibility is linking cars to drivers, ensuring that every race has the perfect set of wheels. It serves as the foundation upon which the other services are built.
 
