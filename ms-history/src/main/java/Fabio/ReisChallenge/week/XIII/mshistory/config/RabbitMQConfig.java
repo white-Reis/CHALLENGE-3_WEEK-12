@@ -23,7 +23,7 @@ public class RabbitMQConfig {
         this.objectMapper = objectMapper;
     }
 
-    @RabbitListener(queues = "race-queue")
+    @RabbitListener(queues = "race-queue",autoStartup = "false")
     public void receiveMessage(String message) {
         try {
             RaceResult raceResult = objectMapper.readValue(message, RaceResult.class);
