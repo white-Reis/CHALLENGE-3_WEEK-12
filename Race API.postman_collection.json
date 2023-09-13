@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "92be23e3-5d60-4987-a410-839132c0b875",
+		"name": "Race API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27688899",
+		"_collection_link": "https://www.postman.com/speeding-equinox-52035/workspace/race-api/collection/27688899-92be23e3-5d60-4987-a410-839132c0b875?action=share&source=collection_link&creator=27688899"
+	},
+	"item": [
+		{
+			"name": "Race",
+			"item": [
+				{
+					"name": "Race by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/api/v1/race/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Races",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/api/v1/race"
+					},
+					"response": []
+				},
+				{
+					"name": "Create race",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n       \"name\": \"Trace av.paulista\",\r\n       \"country\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8082/api/v1/race"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "History",
+			"item": [
+				{
+					"name": "History by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8083/api/v1/history/IDHere"
+					},
+					"response": []
+				},
+				{
+					"name": "Full history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8083/api/v1/history"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "Create Car",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n        \"brand\": \"Ferrari\",\r\n        \"model\": \"nave02\",\r\n        \"pilot\": {\r\n            \"name\": \"roberto\",\r\n            \"age\": 24\r\n        }, \r\n        \"year\": \"2023-01-26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/api/v1/cars"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n        \"brand\": \"WW\",\r\n        \"model\": \"fusca\",\r\n        \"pilot\": {\r\n            \"name\": \"olivia reis\",\r\n            \"age\": 24\r\n        }, \r\n        \"year\": \"2008-10-26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/api/v1/cars/5"
+					},
+					"response": []
+				},
+				{
+					"name": "Cars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/api/v1/cars"
+					},
+					"response": []
+				},
+				{
+					"name": "Car by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/api/v1/cars/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Car and Pilot by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8081/api/v1/cars/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
