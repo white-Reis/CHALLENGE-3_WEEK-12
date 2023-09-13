@@ -55,7 +55,7 @@ Docker - https://www.docker.com/products/docker-desktop/
 
 3. Run Docker compose
    ```bash
-   docker-compose up
+   docker-compose up -d
 
 
 Services take a while to start, Spring applications take a little longer because a waiting time has been defined for the services to start correctly, but if it doesn't happen as expected, it can be monitored by Docker.
@@ -63,7 +63,7 @@ If everything goes correctly, all services will be running as in the image below
 
 ![dock](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/bf94e74d-205b-4264-93b1-726cf03a3ee5)
 
-If any service has the exited status, the "docker compose up" command must be run again or click on the action arrow in the right corner of the containers, as shown in the image below
+If any service has the exited status, the "docker compose up -d" command must be run again or click on the action arrow in the right corner of the containers, as shown in the image below
 
 ![ssa](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/3710e918-0722-46ba-acc4-6395ebde694b)
 
