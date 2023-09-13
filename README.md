@@ -83,7 +83,7 @@ ________________________________________________________________________________
 
 You can use the Postman collection to interact with the API. Download the Postman collection by clicking the link below:
 
-[Postman Collection](https://www.postman.com/speeding-equinox-52035/workspace/compass2023/collection/27688899-bcce56e9-ade6-4b72-b8fe-897066dc0dbd?action=share&creator=27688899)
+[Postman Collection](https://www.postman.com/speeding-equinox-52035/workspace/race-api/collection/27688899-92be23e3-5d60-4987-a410-839132c0b875?action=share&creator=27688899)
 
 To use the collection:
 1. Open Postman.
