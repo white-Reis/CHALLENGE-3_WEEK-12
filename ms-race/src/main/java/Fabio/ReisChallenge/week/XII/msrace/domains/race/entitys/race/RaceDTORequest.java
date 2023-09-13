@@ -1,7 +1,6 @@
 package Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

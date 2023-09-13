@@ -1,7 +1,7 @@
 package Fabio.ReisChallenge.week.XII.msrace.handler;
 
-import Fabio.ReisChallenge.week.XII.mscars.exceptions.DataIntegratyViolationException;
-import Fabio.ReisChallenge.week.XII.mscars.exceptions.ObjectNotFoundException;
+import Fabio.ReisChallenge.week.XII.msrace.exceptions.DataIntegratyViolationException;
+import Fabio.ReisChallenge.week.XII.msrace.exceptions.ObjectNotFoundException;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

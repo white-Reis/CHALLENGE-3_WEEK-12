@@ -2,8 +2,8 @@ package Fabio.ReisChallenge.week.XII.msrace.domains.race.processors;
 
 import Fabio.ReisChallenge.week.XII.msrace.config.RabbitMQConfig;
 import Fabio.ReisChallenge.week.XII.msrace.domains.cars.CarsFeignClient;
-import Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys.Car;
-import Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys.Cars;
+import Fabio.ReisChallenge.week.XII.msrace.domains.cars.entitys.Car;
+import Fabio.ReisChallenge.week.XII.msrace.domains.cars.entitys.Cars;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.Race;
 import Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race.RaceResult;
 import com.fasterxml.jackson.core.JsonProcessingException;

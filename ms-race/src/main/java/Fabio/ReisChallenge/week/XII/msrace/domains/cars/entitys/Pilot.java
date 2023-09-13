@@ -1,4 +1,4 @@
-package Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys;
+package Fabio.ReisChallenge.week.XII.msrace.domains.cars.entitys;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

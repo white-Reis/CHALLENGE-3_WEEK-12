@@ -1,6 +1,6 @@
 package Fabio.ReisChallenge.week.XII.msrace.domains.race.entitys.race;
 
-import Fabio.ReisChallenge.week.XII.msrace.domains.cars.enitys.Car;
+import Fabio.ReisChallenge.week.XII.msrace.domains.cars.entitys.Car;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
