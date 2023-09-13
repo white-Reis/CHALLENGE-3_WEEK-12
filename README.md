@@ -71,7 +71,7 @@ ________________________________________________________________________________
 
 ## :zap: Testing
 
-Run the tests by executing the following command in the service directory:
+Running the test requires you to enter the service directory:
    ```bash
    cd .\ms-cars\
    mvn test
