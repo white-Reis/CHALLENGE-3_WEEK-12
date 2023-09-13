@@ -26,7 +26,7 @@ ________________________________________________________________________________
 ## :memo:Prerequisites
 
 - Java 17
-- Maven 3.0.9
+- Maven 4.0.0
 - MySQL database
 - PostgreSQL
 - MongoDB
@@ -59,9 +59,13 @@ Docker - https://www.docker.com/products/docker-desktop/
 
 
 Services take a while to start, Spring applications take a little longer because a waiting time has been defined for the services to start correctly, but if it doesn't happen as expected, it can be monitored by Docker.
-
+If everything goes correctly, all services will be running as in the image below
 
 ![dock](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/bf94e74d-205b-4264-93b1-726cf03a3ee5)
+
+If any service has the exited status, the "docker compose up" command must be run again or click on the action arrow in the right corner of the containers, as shown in the image below
+
+![ssa](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/3710e918-0722-46ba-acc4-6395ebde694b)
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## :round_pushpin:EndPoints
@@ -88,8 +92,14 @@ ________________________________________________________________________________
 
 - Java 17
 - Maven 4.0.0
+- Docker
 - MySQL database
+- PostgreSQL
+- MongoDB
+- OpenFeign
+- RabbitMq
 - Git
+- GitBash
 - Spring Boot 3.0.9
 - Validator
 - Lombok
