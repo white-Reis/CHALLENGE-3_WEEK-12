@@ -5,7 +5,6 @@ LABEL authors="fabio"
 WORKDIR /app
 COPY . /app
 
-RUN ./mvnw package
 COPY target/ms-cars-0.0.1-SNAPSHOT.jar .
 
 

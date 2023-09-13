@@ -9,12 +9,14 @@ services:
       - 'MYSQL_ALLOW_EMPTY_PASSWORD=yes'
     ports:
       - '3306:3306'
+
   rabbitmq:
     image: 'rabbitmq:latest'
     ports:
       - '5672:5672'
       - '15672:15672'
-  race-service:
+
+  ms-race:
     build:
       context: ./ms-race
       dockerfile: Dockerfile
@@ -23,8 +25,8 @@ services:
     depends_on:
       - mysql
       - rabbitmq
-      - car-service
-    command: [ "sh", "-c", "sleep 300 && java -jar ms-race-0.0.1-SNAPSHOT.jar" ]
+      - ms-cars
+    command: [ "sh", "-c", "sleep 180 && java -jar ms-race-0.0.1-SNAPSHOT.jar" ]
 
   db:
     image: 'postgres:15.3'
@@ -34,7 +36,8 @@ services:
       - POSTGRES_USER=root
     ports:
       - "5432:5432"
-  car-service:
+
+  ms-cars:
     build:
       context: ./ms-cars
       dockerfile: Dockerfile
@@ -43,6 +46,7 @@ services:
     depends_on:
       - db
     command: [ "sh", "-c", "sleep 180 && java -jar ms-cars-0.0.1-SNAPSHOT.jar" ]
+
   mongodb:
     image: mongo
     ports:
@@ -53,7 +57,9 @@ services:
     volumes:
       - ./scripts:/docker-entrypoint-initdb.d
     command: mongod --auth
-  car-history:
+
+
+  ms-history:
     build:
       context: ./ms-history
       dockerfile: Dockerfile
@@ -61,4 +67,6 @@ services:
       - "8083:8083"
     depends_on:
       - db
-    command: [ "sh", "-c", "sleep 180 && java -jar ms-history-0.0.1-SNAPSHOT.jar" ]
+      - rabbitmq
+      - ms-race
+    command: [ "sh", "-c", "sleep 200 && java -jar ms-history-0.0.1-SNAPSHOT.jar" ]
