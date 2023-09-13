@@ -20,7 +20,8 @@ Our project is a testament to the capabilities of microservices, harnessing the 
 - Use of the MongoDB database in one or more services.
 - Use of OpenFeign.
 - Use of RabbitMQ.
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 # :vulcan_salute:Getting Started
 
 ## :memo:Prerequisites
@@ -35,8 +36,8 @@ ________________________________________________________________________________
 - Docker
 - Postman
 - GitBash
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## :hammer_and_wrench:Installation
 
 If you don't have Maven, GitBash our Docker installed, you can download it from here 
@@ -66,8 +67,18 @@ If everything goes correctly, all services will be running as in the image below
 If any service has the exited status, the "docker compose up -d" command must be run again or click on the action arrow in the right corner of the containers, as shown in the image below
 
 ![ssa](https://github.com/white-Reis/CHALLENGE-3_WEEK-12/assets/82837278/3710e918-0722-46ba-acc4-6395ebde694b)
-
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+## :zap: Testing
+
+Run the tests by executing the following command in the service directory:
+   ```bash
+   cd .\ms-cars\
+   mvn test
+
+````     
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 ## :round_pushpin:EndPoints
 
 You can use the Postman collection to interact with the API. Download the Postman collection by clicking the link below:
@@ -78,17 +89,8 @@ To use the collection:
 1. Open Postman.
 2. Import the downloaded collection.
 3. Follow the API requests and responses to interact with the endpoints.
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
-## :zap: Testing
-
-Run the tests by executing the following command in the service directory:
-   ```bash
-   cd .\ms-cars\
-   mvn test
-
-````      
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## 🚀Technologies
 
 - Java 17
