@@ -10,7 +10,7 @@ Historical Service: Completing the trio, the Historical Service serves as the pr
 
 All services are equipped with robust validation mechanisms and leverage agile development tools like Lombok. We've also gone the extra mile by configuring a Docker Compose setup, simplifying the deployment process for all services and their respective databases. Additionally, we've crafted scripts for building executables, making it effortless to run the project on both Windows, using CMD, and Linux, using sh.
 
-Our project is a testament to the capabilities of microservices, harnessing the potential of various technologies and databases to create a dynamic and efficient racing management system."
+Our project is a testament to the capabilities of microservices, harnessing the potential of various technologies and databases to create a dynamic and efficient racing management system.
 
 
 
