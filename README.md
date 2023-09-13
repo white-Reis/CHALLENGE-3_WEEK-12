@@ -2,7 +2,7 @@
 
 "In this project, we delve into the world of microservices, harnessing the power of multiple databases, messaging systems, and consumers. The system comprises three distinct services, each playing a pivotal role in managing races and providing a seamless experience for users.
 
-Car Service: This service is the backbone of the project, equipped with a robust relational database. Its primary responsibility is linking cars to drivers, ensuring that every race has the perfect set of wheels. It serves as the foundation upon which the other services build.
+Car Service: This service is the backbone of the project, equipped with a robust relational database. Its primary responsibility is linking cars to drivers, ensuring that every race has the perfect set of wheels. It serves as the foundation upon which the other services are built.
 
 Race Service: With a powerful blend of OpenFeign and MySQL, the Race Service takes center stage. This service is responsible for creating races by intelligently consuming cars from the Car Service. It doesn't stop there; it features a cutting-edge algorithm that simulates races, sending race track data and the final podium results to a RabbitMQ queue. The Race Service exemplifies the project's agility and adaptability.
 
@@ -39,17 +39,24 @@ ________________________________________________________________________________
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## :hammer_and_wrench:Installation
 
-If you don't have Maven installed, you can download it from here - https://maven.apache.org/download.cgi
-If you don't have GitBash installed, you can download it from here - https://git-scm.com/downloads
+If you don't have Maven, GitBash our Docker installed, you can download it from here 
+Maven - https://maven.apache.org/download.cgi
+GitBash - https://git-scm.com/downloads
+Docker - https://www.docker.com/products/docker-desktop/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/white-Reis/compass-scholarship-api.git
+   git clone https://github.com/white-Reis/CHALLENGE-3_WEEK-12.git
+
+2. Build projects:
+   ```bash
    cd CHALLENGE-3_WEEK-12
    bash build_all.sh
+
+3. Run Docker compose
+   ```bash
    docker-compose up
-
-
+  
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## :round_pushpin:EndPoints
