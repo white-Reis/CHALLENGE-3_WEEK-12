@@ -26,7 +26,7 @@ services:
       - mysql
       - rabbitmq
       - ms-cars
-    command: [ "sh", "-c", "sleep 180 && java -jar ms-race-0.0.1-SNAPSHOT.jar" ]
+    command: [ "sh", "-c", "sleep 300 && java -jar ms-race-0.0.1-SNAPSHOT.jar" ]
 
   db:
     image: 'postgres:15.3'
@@ -45,7 +45,7 @@ services:
       - "8081:8081"
     depends_on:
       - db
-    command: [ "sh", "-c", "sleep 120 && java -jar ms-cars-0.0.1-SNAPSHOT.jar" ]
+    command: [ "sh", "-c", "sleep 180 && java -jar ms-cars-0.0.1-SNAPSHOT.jar" ]
 
   mongodb:
     image: mongo
@@ -69,4 +69,4 @@ services:
       - db
       - rabbitmq
       - ms-race
-    command: [ "sh", "-c", "sleep 180 && java -jar ms-history-0.0.1-SNAPSHOT.jar" ]
+    command: [ "sh", "-c", "sleep 300 && java -jar ms-history-0.0.1-SNAPSHOT.jar" ]
