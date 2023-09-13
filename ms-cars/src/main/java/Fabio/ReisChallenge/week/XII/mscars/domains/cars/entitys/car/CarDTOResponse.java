@@ -1,11 +1,14 @@
 package Fabio.ReisChallenge.week.XII.mscars.domains.cars.entitys.car;
 
 import Fabio.ReisChallenge.week.XII.mscars.domains.pilot.entitys.pilot.PilotDTOResponse;
-import lombok.Data;
+import lombok.*;
 
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CarDTOResponse {
     private Long id;
     private String brand;
